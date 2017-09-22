@@ -1,0 +1,44 @@
+@import "variables";
+@import "theme/moFLow";
+
+.project {
+  display: flex;
+}
+
+.left {
+  flex: 0 1 auto;
+}
+
+.right {
+  flex: 1 0 40px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.actionWrapper {
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+  border-radius: 4px;
+
+  & .action:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+
+  & .action:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+
+  & .action:only-child {
+    border-radius: 4px 4px 4px 4px;
+  }
+}
+
+.action {
+  cursor: pointer;
+  display: block;
+  padding: 7px 10px;
+  background: white;
+  &:hover {
+    background-color: lighten($color-primary, 58%);
+  }
+}

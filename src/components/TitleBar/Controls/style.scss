@@ -1,0 +1,44 @@
+.controls {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: #f0f0ee;
+  &:hover .label {
+    display: inline;
+  }
+}
+
+.button {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
+}
+
+.closeButton {
+  composes: button;
+  background-color: #fe5e59;
+}
+
+.minButton {
+  composes: button;
+  background-color: #fec42f;
+}
+
+.maxButton {
+  composes: button;
+  background-color: #2bd648;
+}

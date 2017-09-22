@@ -1,0 +1,11 @@
+.wrap {
+  display: flex;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.toolItem {
+  flex: 0 0 250px;
+}

@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  overflow-y: auto;
+  background-color: mintcream;
+  // justify-content: center;
+}
+
+.navItem {
+  height: 50px;
+
+  :global {
+    a {
+      color: inherit;
+    }
+
+    a.active {
+      color: #198f6c;
+    }
+  }
+}

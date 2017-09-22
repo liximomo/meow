@@ -1,0 +1,12 @@
+.container {
+  margin-left: 20px;
+  width: 200px;
+  // text-align: center;
+
+  :global {
+    .ant-input-search .ant-input {
+      border-radius: 14px;
+      padding-left: 10px;
+    }
+  }
+}

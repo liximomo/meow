@@ -1,0 +1,28 @@
+@import "variables";
+@import "theme/moFLow";
+
+$col-left-width: 60px;
+$col-mid-width: 240px;
+
+.layout {
+  display: flex;
+}
+
+.col {
+  height: calc(100vh - #{$title-bar-height});
+  overflow-y: auto;
+}
+
+.col + .col {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.colLeft {
+  composes: col;
+  flex: 0 0 $col-left-width;
+}
+
+.colRight {
+  composes: col;
+  flex: 1 0 auto;
+}

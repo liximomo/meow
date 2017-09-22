@@ -1,0 +1,46 @@
+@import "variables";
+@import "theme/moFLow";
+
+.wrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.col {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.left {
+  composes: col;
+  flex: 0 0 50%;
+}
+
+.right {
+  composes: col;
+  flex: 1 0 auto;
+}
+
+.cell {
+  height: 50%;
+}
+
+.cell + .cell {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.textarea {
+  padding: 6px 12px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  border-width: 0;
+  overflow-y: auto;
+  
+  &:focus {
+    outline: none;
+  }
+
+}

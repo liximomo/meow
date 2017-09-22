@@ -1,0 +1,17 @@
+.anim-o-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.anim-v-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.anim-v-hide {
+  visibility: hidden;
+}
+
+.anim-v-show {
+  visibility: visible;
+};

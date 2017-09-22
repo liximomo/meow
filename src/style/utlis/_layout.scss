@@ -1,0 +1,90 @@
+// display
+.u-alignMiddle .u-alignBlock,.u-alignMiddle:before {
+  display: inline-block !important;
+  vertical-align: middle !important
+}
+
+.u-alignMiddle:before {
+  content: '' !important;
+  height: 100% !important
+}
+
+.u-inline {
+  display: inline !important
+}
+
+.u-inlineBlock {
+  display: inline-block !important
+}
+
+.u-block {
+  display: block !important
+}
+
+// position
+.u-relative {
+  position: relative !important
+}
+
+.u-absolute {
+  position: absolute !important
+}
+
+.u-fixed {
+  position: fixed !important
+}
+
+.u-absolute0 {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important
+}
+
+// scroll
+.u-overflowX {
+  overflow-x: auto!important;
+  overflow-y: hidden!important;
+  -ms-overflow-style: -ms-autohiding-scrollbar!important
+}
+
+.u-overflowY {
+  overflow-x: hidden!important;
+  overflow-y: auto!important;
+  -ms-overflow-style: -ms-autohiding-scrollbar!important
+}
+
+.u-overflowScroll {
+  overflow: scroll!important
+}
+
+.u-overflowScrollY {
+  overflow-y: scroll!important
+}
+
+.u-overflowHidden {
+  overflow: hidden!important
+}
+
+.u-overflowHiddenY {
+  overflow-y: hidden!important
+}
+
+.u-overflowVisible {
+  overflow: visible!important
+}
+
+.u-overflowAuto {
+  overflow: auto!important
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  .u-overflowX {
+    -webkit-overflow-scrolling: touch!important;
+  }
+
+  .u-overflowY {
+    -webkit-overflow-scrolling: touch!important;
+  }
+}

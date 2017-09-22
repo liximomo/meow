@@ -1,0 +1,42 @@
+$titel-height: 30px;
+
+.panel {
+  height: 100%;
+  position: relative;
+}
+
+.panelWithoutBar {
+  .content {
+    top: 0;
+  }
+}
+
+.titleBar {
+  user-select: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  height: $titel-height;
+  line-height: $titel-height;
+  padding: 0 10px;
+}
+
+.title {
+  flex: 0 1 auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.titleRight {
+  text-align: right;
+  flex: 1 0 40px;
+}
+
+.content {
+  position: absolute;
+  top: $titel-height;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,0 +1,43 @@
+@mixin aspect-ratio($width, $height) {
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  position: relative;
+ //  padding-bottom: ($height / $width) * 100%;
+  img,
+  video,
+  iframe,
+  object,
+  embed,
+  .img, // dreprecated use .media instaed
+  .media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+  }
+}
+
+// parent container need to set overflow-x: hidden;
+@mixin horizontal-center-clip ($width) {
+  width: $width;
+  overflow-x: hidden;
+  position: relative;
+  left: 50%;
+  margin-left: -$width / 2;
+
+  img,
+  video,
+  iframe,
+  object,
+  embed,
+  .media {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

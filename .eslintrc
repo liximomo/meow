@@ -1,0 +1,13 @@
+{
+  "extends": "react-app",
+  "globals": {
+    "React": false,
+    "ReactDOM": false,
+    "PropTypes": false,
+    "cn": false,
+    "nodeRequire": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": 0
+  }
+}

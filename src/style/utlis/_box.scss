@@ -1,0 +1,73 @@
+$marginSizeList: 0, 5, 10, 15, 20, 25, 30, 35, 40, 50;
+$paddingSizeList: 0, 5, 10, 15, 20, 25, 30, 35, 40;
+
+// margin
+@each $size in $marginSizeList {
+  .u-margin#{$size} {
+    margin: #{$size}px !important;
+  }
+
+  .u-marginTop#{$size} {
+    margin-top: #{$size}px !important;
+  }
+
+  .u-marginBottom#{$size} {
+    margin-bottom: #{$size}px !important;
+  }
+
+  .u-marginLeft#{$size} {
+    margin-left: #{$size}px !important;
+  }
+
+  .u-marginRight#{$size} {
+    margin-right: #{$size}px !important;
+  }
+}
+
+.u-marginAuto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.u-margin3 {
+  margin: 3px !important;
+}
+
+.u-margin8 {
+  margin: 8px !important;
+}
+
+// padding
+@each $size in $paddingSizeList {
+  .u-padding#{$size} {
+    padding: #{$size}px !important;
+  }
+
+  .u-paddingTop#{$size} {
+    padding-top: #{$size}px !important;
+  }
+
+  .u-paddingBottom#{$size} {
+    padding-bottom: #{$size}px !important;
+  }
+
+  .u-paddingLeft#{$size} {
+    padding-left: #{$size}px !important;
+  }
+
+  .u-paddingRight#{$size} {
+    padding-right: #{$size}px !important;
+  }
+}
+
+.u-padding8 {
+  padding: 8px !important;
+}
+
+.u-padding14 {
+  padding: 14px !important;
+}
+
+.u-border0 {
+  border-width: 0px !important;
+}

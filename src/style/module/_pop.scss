@@ -1,0 +1,28 @@
+.pop {
+  position: absolute;
+  z-index: $zindex-popover;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+  border-radius: 4px;
+
+  .pop__content {
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.pop--bottom {
+  top: 100%;
+
+  .arrow {
+    @include arrow-top(8px, rgba(255,255,255,0.9));
+  }
+}
+
+.pop--top {
+  bottom: 100%;
+
+  .arrow {
+    @include arrow-bottom(8px, rgba(255,255,255,0.9));
+  }
+}

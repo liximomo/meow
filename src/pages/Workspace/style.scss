@@ -1,0 +1,45 @@
+@import "variables";
+@import "theme/moFLow";
+
+$col-left-width: 240px;
+
+.wrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.col {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.left {
+  composes: col;
+  flex: 0 0 $col-left-width;
+}
+
+.right {
+  composes: col;
+  flex: 1 0 auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  overflow-y: auto;
+  background-color: mintcream;
+  // justify-content: center;
+}
+
+.navItem {
+  height: 50px;
+
+  :global {
+    a.active {
+      color: #198f6c;
+    }
+  }
+}

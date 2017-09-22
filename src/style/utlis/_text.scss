@@ -1,0 +1,71 @@
+/**
+ * Horizontal text alignment
+ */
+
+.u-textCenter {
+  text-align: center !important;
+}
+
+.u-textLeft {
+  text-align: left !important;
+}
+
+.u-textRight {
+  text-align: right !important;
+}
+
+// .u-textPW {
+//   white-space: pre-wrap;
+// }
+
+.u-preSpace {
+  white-space: pre;
+}
+
+.u-noWrap {
+  white-space: nowrap !important;
+}
+
+.u-normalWrap {
+  white-space: normal !important;
+}
+
+.u-noWrapTruncate {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+.u-noWrapWithEllipsis {
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}
+
+.u-textOverflowEllipsis {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}
+
+.u-wordBreakNormal {
+  word-break: normal !important;
+}
+
+.u-breakWord {
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.u-breakAll {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.u-textScreenReader {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  color: rgba(255,255,255,0) !important;
+  pointer-events: none !important;
+}
+

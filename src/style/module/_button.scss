@@ -1,0 +1,42 @@
+.button {
+  display: inline-block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transform: translateZ(0);
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  background-image: none;
+  border-radius: 6px;
+  margin-bottom: 0;
+  font-weight: 500;
+  padding: 4px 15px;
+  font-size: 14px;
+  background-color: transparent;
+  color: inherit;
+}
+
+.button:hover,
+.button.hover,
+.button:active,
+.button.active,
+.button:focus,
+.button.focus,
+.button:visited, 
+.button.visited {
+  outline: none;
+}
+
+.button:disabled,
+.button.disabled {
+  cursor: not-allowed;
+  opacity: 0.65; 
+}
+
+.button--primary {
+  background: $color-primary;
+  color: white;
+  border-radius: 5px;
+}

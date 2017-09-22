@@ -1,0 +1,46 @@
+// deprecated 已弃用 后续会慢慢移除 请使用 button 类替代
+.btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transform: translateZ(0);
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  background-image: none;
+  border-radius: 6px;
+  margin-bottom: 0;
+  font-weight: 500;
+  padding: 4px 15px;
+  font-size: 14px;
+  background-color: transparent;
+  color: inherit;
+}
+
+// deprecated 已弃用 后续会慢慢移除 请使用 button 类替代
+.btn:hover,
+.btn.hover,
+.btn:active,
+.btn.active,
+.btn:focus,
+.btn.focus,
+.btn:visited, 
+.btn.visited {
+  outline: none;
+}
+
+// deprecated 已弃用 后续会慢慢移除 请使用 button 类替代
+.btn:disabled,
+.btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.65; 
+}
+
+// deprecated 已弃用 后续会慢慢移除 请使用 button 类替代
+.btn-primary {
+  background: $color-primary;
+  color: white;
+  border-radius: 5px;
+}
