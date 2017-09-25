@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import Split from 'split.js'
 
 import Panel from '../../../components/Panel';
 import Action from '../../../components/IconAction';
@@ -42,6 +43,29 @@ class Work extends React.Component {
     this.props.dispatch(updateProject(this.props.project.id, updatedValue));
   };
 
+  setProjectNode = (node) => {
+    this.projectNode = node;
+  }
+
+  setConsoleNode = (node) => {
+    this.consoleNode = node;
+  }
+    
+
+  componentDidMount() {
+    this.split = Split([this.projectNode, this.consoleNode], {
+      sizes: [70, 30],
+      minSize: 100,
+      gutterSize: 5,
+      snapOffset: 4,
+      direction: 'vertical',
+    });
+  }
+
+  componentWillUnmount() {
+    this.split.destroy();
+  }
+
   render() {
     const { project } = this.props;
     const { showConsole } = this.state;
@@ -56,24 +80,25 @@ class Work extends React.Component {
             style={{
               height: showConsole ? `calc(100% - ${consoleHeight})` : '100%',
             }}
+            ref={this.setProjectNode}
           >
             <div className={style.view}>
               <Project data={project} onChange={this.handleProjectChange} />
             </div>
           </div>
-          {showConsole
-            ? <div
-                style={{
-                  height: consoleHeight,
-                }}
-              >
-                <Panel title="CONSOLE">
-                  <div className={style.viewConsole}>
-                    <Console />
-                  </div>
-                </Panel>
-              </div>
-            : null}
+            <div
+              style={{
+                height: consoleHeight,
+                display: showConsole ? 'block' : 'none',
+              }}
+              ref={this.setConsoleNode}
+            >
+              <Panel title="CONSOLE">
+                <div className={style.viewConsole}>
+                  { showConsole ? <Console /> : null}
+                </div>
+              </Panel>
+            </div>
         </div>
       </Panel>
     );

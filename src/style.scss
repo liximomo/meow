@@ -1,0 +1,12 @@
+:global {
+  .gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+  
+  .gutter.gutter-vertical {
+    background-image: url(~@src/assets/horizontal.png);
+    cursor: ns-resize;
+  }
+}
