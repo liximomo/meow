@@ -267,6 +267,6 @@ export const getActiveProject = createSelector(
   keySels.byId,
   keySels.activeId,
   (projects, activeId) => {
-    return projects[activeId] || {};
+    return projects[activeId];
   }
 );
