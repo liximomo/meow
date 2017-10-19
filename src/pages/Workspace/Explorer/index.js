@@ -1,4 +1,4 @@
-import { Button, message } from 'antd';
+import { Modal, Button, message } from 'antd';
 import { connect } from 'react-redux';
 
 import { Input } from 'antd';
@@ -40,9 +40,11 @@ class Explorer extends React.Component {
     if (!this.props.activeId) {
       return;
     }
-
+    
     const activeNode = document.querySelector(`[data-id="${this.props.activeId}"]`);
-    this.projectsListNode.scrollTop = activeNode.offsetTop - 40;
+    if (activeNode) {
+      this.projectsListNode.scrollTop = activeNode.offsetTop - 40;
+    }
   }
 
   actions() {
@@ -64,13 +66,15 @@ class Explorer extends React.Component {
 
   createNewProject = async _ => {
     const value = this.state.createInputValue;
-    if (value) {
-      const result = await this.props.dispatch(addProject(value));
-      if (result.error) {
-        message.error(result.payload.message);
+    try {
+      if (value) {
+        await this.props.dispatch(addProject(value));
       }
+    } catch (error) {
+      message.error(error.message);
+    } finally {
+      this.exitCreateMode();
     }
-    this.exitCreateMode();
   };
 
   enterCreateMode = () => {
@@ -125,7 +129,18 @@ class Explorer extends React.Component {
   };
 
   handleProjectRemove = project => {
-    this.props.dispatch(delProject(project));
+    Modal.confirm({
+      title: '移除',
+      content: '确认要移除此项目吗？',
+      okText: '移除',
+      cancelText: '取消',
+      onOk: () => {
+        return this.props.dispatch(delProject(project))
+          .catch(error => {
+            message.error(error.message);
+          });
+      },
+    });
   };
 
   projectItem = (project, index) => {

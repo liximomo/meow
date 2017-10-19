@@ -1,5 +1,5 @@
 import { Icon } from 'antd';
-import { Redirect, NavLink, Route } from 'react-router-dom';
+import { Switch, Redirect, NavLink, Route } from 'react-router-dom';
 import Workspace from '../Workspace';
 import Tools from '../Tools';
 import Purifycss from '../Purifycss';
@@ -32,10 +32,12 @@ export default class Workstation extends React.Component {
   mainView() {
     return (
       <div className="u-fillParent">
-        <Redirect from={path.home()} to={path.worksapce()} />
-        <Route exact path={path.worksapce()} component={Workspace}/>
-        <Route exact path={path.tools()} component={Tools}/>
-        <Route exact path={path.purifyCss()} component={Purifycss}/>
+        <Switch>
+          <Route exact path={path.worksapce()} component={Workspace}/>
+          <Route exact path={path.tools()} component={Tools}/>
+          <Route exact path={path.purifyCss()} component={Purifycss}/>
+          <Redirect to={path.worksapce()} />
+        </Switch>
       </div>
     );
   }

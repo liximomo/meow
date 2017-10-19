@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Split from 'split.js'
+// import Split from 'split.js'
 
 import Panel from '../../../components/Panel';
 import Action from '../../../components/IconAction';
@@ -50,20 +50,19 @@ class Work extends React.Component {
   setConsoleNode = (node) => {
     this.consoleNode = node;
   }
-    
 
   componentDidMount() {
-    this.split = Split([this.projectNode, this.consoleNode], {
-      sizes: [70, 30],
-      minSize: 100,
-      gutterSize: 5,
-      snapOffset: 4,
-      direction: 'vertical',
-    });
+    // this.split = Split([this.projectNode, this.consoleNode], {
+    //   sizes: [70, 30],
+    //   minSize: 100,
+    //   gutterSize: 5,
+    //   snapOffset: 4,
+    //   direction: 'vertical',
+    // });
   }
 
   componentWillUnmount() {
-    this.split.destroy();
+    // this.split.destroy();
   }
 
   render() {

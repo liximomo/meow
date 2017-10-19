@@ -1,7 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import dotProp from 'dot-prop-immutable';
 
-import { initProjects, remove, defaultProjectConifg } from '../service/project';
+import { getProjectId, initProjects, remove, defaultProjectConifg } from '../service/project';
 import createCommand from '../service/createCommand';
 import createReducer from '../utils/createReducer';
 import createAction from '../utils/createAction';
@@ -33,18 +33,18 @@ const keySels = createKeysSelector(initState, 'projects');
 
 const reducer = createReducer(initState, {
   [ADD_PROJECTS](state, action) {
-    if (action.error) {
-      return state;
-    }
+    // if (action.error) {
+    //   return state;
+    // }
 
     const project = action.payload;
     const byId = state.byId;
 
-    if (byId[project.id]) {
-      action.payload = new Error('已存在同名项目！');
-      action.error = true;
-      return state;
-    }
+    // if (byId[project.id]) {
+    //   action.payload = new Error('已存在同名项目！');
+    //   action.error = true;
+    //   return state;
+    // }
 
     return {
       ...state,
@@ -129,15 +129,27 @@ const valuesSortByCreateDate = compose(sortBy('createDate'), objToArray);
 
 export default reducer;
 
-export const addProject = createAction(ADD_PROJECTS, async name => {
-  const project = await initProjects(name.trim());
-  return project;
-});
-export const removeProjectFromState = createAction(DEL_PROJECTS);
-export const delProject = project => dispatch => {
-  remove(project);
-  dispatch(removeProjectFromState(project.id));
+export const addProjectToStore = createAction(ADD_PROJECTS);
+
+export const addProject = name => async (dispatch, getState) => {
+  const state = getState();
+  const byId = keySels.byId(state);
+  const trimed = name.trim();
+  const id = getProjectId(trimed);
+  if (byId[id]) {
+    throw new Error('已存在同名项目！');
+  }
+
+  const project = await initProjects(trimed);
+  return dispatch(addProjectToStore(project));
+  // return project;
+  // getRunningProjects(state).forEach(project => dispatch(stopProject(project)));
 };
+
+export const removeProjectFromState = createAction(DEL_PROJECTS);
+export const delProject = project => dispatch => remove(project)
+  .then(dispatch(removeProjectFromState(project.id)));
+
 export const updateProject = createAction(UPDATE_PROJECTS, (id, update) => ({
   id,
   ...update,
@@ -255,6 +267,6 @@ export const getActiveProject = createSelector(
   keySels.byId,
   keySels.activeId,
   (projects, activeId) => {
-    return projects[activeId];
+    return projects[activeId] || {};
   }
 );

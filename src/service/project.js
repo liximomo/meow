@@ -3,6 +3,7 @@ import hash from '../utils/hash';
 
 const fse = require('fs-extra');
 const path = require('path');
+const { shell } =  require('electron');
 
 export const defaultProjectConifg = {
   publicPath: 'http://7xw10e.com1.z0.glb.clouddn.com/yyActivity/',
@@ -18,6 +19,11 @@ export const defaultProjectConifg = {
 };
 
 const getProjectPath = name => path.join(WORKSPACE, 'src/pages', name);
+
+export function getProjectId(name) {
+  return hash(name);
+}
+
 export async function initProjects(name) {
   const projectPath = getProjectPath(name);
   await fse.ensureDir(projectPath);
@@ -34,6 +40,10 @@ export async function initProjects(name) {
 
 export function remove(project) {
   const projectPath = getProjectPath(project.name);
-  fse.removeSync(projectPath);
-  return project;
+  const result = shell.moveItemToTrash(projectPath);
+  if (!result) {
+    return Promise.reject(new Error(`移除 ${path.basename(projectPath)} 失败`));
+  }
+
+  return Promise.resolve();
 }

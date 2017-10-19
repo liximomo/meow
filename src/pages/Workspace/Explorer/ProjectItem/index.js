@@ -24,10 +24,10 @@ class ProjectItem extends React.Component {
           </span>,
           <span key="build" className={style.action} onClick={this.build}>
             构建
+          </span>,
+          <span key="delete" className={style.action} onClick={onRemove}>
+            删除
           </span>]}
-        <span className={style.action} onClick={onRemove}>
-          删除
-        </span>
       </div>
     );
   };
